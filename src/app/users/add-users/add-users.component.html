@@ -1,0 +1,59 @@
+<div class="login-wrapper">
+  
+    <mat-card>
+
+        <mat-card-title >
+            <h4> <strong>New User</strong> </h4>
+            <hr>
+        </mat-card-title>
+
+        <mat-card-content>
+            <form [formGroup]="addUserForm" (submit)="createUser()">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Name" formControlName="username">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="addUserForm.controls['name'].errors && addUserForm.controls['name'].hasError('required')">
+                            Name is required
+                        </mat-error>
+                        <mat-error *ngIf="addUserForm.controls['name'].errors && addUserForm.controls['name'].hasError('minlength')">
+                            min 3 alphabets required
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" formControlName="email">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('required')">
+                            Email is required
+                        </mat-error>
+                        <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('email')">
+                            Email is invalid
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Role</mat-label>
+                        <input matInput placeholder="Role" formControlName="role">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="addUserForm.controls['role'].errors && addUserForm.controls['role'].hasError('required')">
+                            Role is required
+                        </mat-error>
+                        <mat-error *ngIf="addUserForm.controls['role'].errors && addUserForm.controls['role'].hasError('minlength')">
+                            min 3 alphabets required
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <button mat-raised-button color="accent" [disabled]="!addUserForm.valid">Submit</button>
+                </p>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>

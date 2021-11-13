@@ -1,0 +1,52 @@
+.username{
+min-width: 300px;
+}
+
+.style-link{
+    padding: 20px;
+}
+
+
+
+  h1{
+    margin: 10px;
+}
+
+table {
+    width: 97%;
+
+  }
+
+  th{
+      background-color: black;
+      color: burlywood;
+      text-shadow: 1px 5px 3px rgb(187, 16, 16), 50px 20px 10p x#bd7b7b,
+                    50px 20px 60px #b12, 50px 20px 60px #ccd4eb ;
+    letter-spacing: 1px;              
+  }
+
+  td{
+      background-color: rgb(230, 219, 219);
+      
+  }
+
+  .searchInput{
+    background-position-x: right;
+    margin-left: 500px;
+  }
+  
+  body{
+    width: 100%;
+  }
+
+  .searchbtn{
+    position: relative;
+    left: 200px;  }
+
+    #closebtn{
+      margin-left: 2px;
+    }
+
+    .wrapper{
+      width: 100%;
+    }
