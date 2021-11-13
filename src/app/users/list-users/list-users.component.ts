@@ -1,10 +1,7 @@
 import { Component, OnInit ,ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { UsersModule } from '../users.module';
+
 import { User } from 'src/app/user';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 const ELEMENT_DATA: User[] = []
@@ -16,8 +13,7 @@ const ELEMENT_DATA: User[] = []
 })
 export class ListUsersComponent implements OnInit {
   
-  @ViewChild(MatPaginator) paginator: MatPaginator | any 
-  @ViewChild(MatSort) sort: MatSort | any
+  
 
 
   displayedColumns: string[] = ['Select All','id', 'name', 'email', 'role','actions'];
@@ -28,14 +24,13 @@ export class ListUsersComponent implements OnInit {
   filterTable: any ='';
   sortbyParam: any ='';
   sortdirection: any = 'asc';
-  dataSource : MatTableDataSource<User> | any
 
  checks = false;
   userid: User[] = []
   isChecked: any =[]
  startIndex = 0 ;
  endIndex = 10;
- // capturedId: any =[]
+ 
   
   
   constructor( private service: UserService, 
@@ -49,11 +44,7 @@ export class ListUsersComponent implements OnInit {
 
   }
   
-  ngAfterViewInit(){
-
-    this.dataSource = new MatTableDataSource(this.listUsers);
-    this.dataSource.paginator =this.paginator
-  }
+  
   
   
   bulk(event: any){
@@ -86,16 +77,7 @@ export class ListUsersComponent implements OnInit {
     this.isChecked = $event.target.checked;
     console.log(this.userid , this.isChecked);
 
-    //  this.listUsers.map((data: any)=>{
-     // if(data.id === this.userid){
-     //   data.select = this.isChecked;
-      //  this.capturedId = data
-        //console.log(this.capturedId)
-    //        return this.capturedId;
-      
-    // }
-      //return this.capturedId;
-      //});
+   
   }
 
   deleteAll(){
