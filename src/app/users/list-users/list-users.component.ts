@@ -16,7 +16,7 @@ export class ListUsersComponent implements OnInit {
   
   displayedColumns: string[] = ['Select All','id', 'name', 'email', 'role','actions'];
 
-
+ 
   listUsers: User[] = [];
   searchValue: string= '' ;
   filterTable: any ='';
@@ -27,7 +27,7 @@ export class ListUsersComponent implements OnInit {
   isChecked: any =[]
  startIndex = 0 ;
  endIndex = 10;
- parentSelector: Boolean = false
+ 
 
  
  
@@ -46,7 +46,9 @@ export class ListUsersComponent implements OnInit {
   
   bulk(event: any){
     if(event.target.checked  == true){
+      
       this.checks= true;
+
     }
     else{
       this.checks= false;
@@ -74,6 +76,7 @@ export class ListUsersComponent implements OnInit {
     this.isChecked = $event.target.checked;
     console.log(this.userid , this.isChecked);
 
+    
    
   }
 

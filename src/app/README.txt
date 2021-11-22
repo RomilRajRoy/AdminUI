@@ -1,0 +1,3 @@
+    -This Application is build on Angular
+        -with Bootstrap and angular material
+            - install node modules and hit npm start to run the Application.
