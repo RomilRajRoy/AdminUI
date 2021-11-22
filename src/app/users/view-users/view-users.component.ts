@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-view-users',
   templateUrl: './view-users.component.html',
@@ -11,8 +11,10 @@ export class ViewUsersComponent implements OnInit {
 
   userid : string =''
   username: string = ''
+  userDetails: any ;
   constructor(private  service:UserService ,
-    private activatedroute: ActivatedRoute ) { }
+    private activatedroute: ActivatedRoute,private snackbar:MatSnackBar,
+    private Router: Router) { }
 
   ngOnInit(): void {
     this.activatedroute.params.subscribe(data =>{
@@ -20,14 +22,17 @@ export class ViewUsersComponent implements OnInit {
       console.log(this.userid)
     })
 
-    this.activatedroute.params.subscribe(data=>{
-      this.username = data.name;
-      console.log(this.username)
-    })
+
 
     this.service.viewuser(this.userid).subscribe(data=>{
-      console.log(data)
-    })
+      this.userDetails = data;
+    }, err=>{
+            this.snackbar.open("Unable To Access the Server");
+            this.Router.navigate(['list']);
+            
+    });
   }
+
+  
 
 }

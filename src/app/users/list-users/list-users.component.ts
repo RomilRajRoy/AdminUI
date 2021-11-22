@@ -1,4 +1,4 @@
-import { Component, OnInit ,ViewChild } from '@angular/core';
+  import { Component, OnInit ,ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
 import { User } from 'src/app/user';
@@ -14,8 +14,6 @@ const ELEMENT_DATA: User[] = []
 export class ListUsersComponent implements OnInit {
   
   
-
-
   displayedColumns: string[] = ['Select All','id', 'name', 'email', 'role','actions'];
 
 
@@ -24,31 +22,30 @@ export class ListUsersComponent implements OnInit {
   filterTable: any ='';
   sortbyParam: any ='';
   sortdirection: any = 'asc';
-
  checks = false;
-  userid: User[] = []
+  userid: any = []
   isChecked: any =[]
  startIndex = 0 ;
  endIndex = 10;
+ parentSelector: Boolean = false
+
  
-  
-  
+ 
   constructor( private service: UserService, 
     private  snackbar : MatSnackBar ) { }
 
-  
-  ngOnInit(): void {
+
+    ngOnInit(): void {
     this.service.listUsers().subscribe(data =>{
       this.listUsers = data;
     })
 
   }
-  
-  
+
   
   
   bulk(event: any){
-    if(event.target.checked== true){
+    if(event.target.checked  == true){
       this.checks= true;
     }
     else{
@@ -93,7 +90,7 @@ export class ListUsersComponent implements OnInit {
 
   getArrayOfNumber(length: number){
 
-    return new Array(length/2);
+    return new Array(Math.round(length/8.5));
 
   }
 
