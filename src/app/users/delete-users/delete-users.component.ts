@@ -10,40 +10,47 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DeleteUsersComponent implements OnInit {
 
-  userid: string = '';
-
-  listUsers :any  =  fetch('https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json')
-  .then(res => res.json())
-  .then(data => {
-    this.listUsers = data;
-    console.log(this.listUsers)
-    console.log(this.listUsers.name)
-  }) 
+  userId: string = '';
+  capturedUser: any = '';
+  // listUsers :any  =  fetch('https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json')
+  //.then(res => res.json())
+  //.then(data => {
+  // this.listUsers = data;
+  //console.log(this.listUsers)
+  //console.log(this.listUsers.name)
+  //}) 
 
   constructor(private service: UserService,
     private activatedroute: ActivatedRoute,
-    private snackbar :MatSnackBar,
+    private snackbar: MatSnackBar,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.activatedroute.params.subscribe(data => {
-      this.userid = data.id;
+    //    this.activatedroute.params.subscribe(data => {
+    //    this.userid = data.id;
 
-    });
+    this.userId = this.activatedroute.snapshot.params['id'];
+    let users = this.service.getUsers()
+    this.capturedUser = users.find((p: { id: any; }) => p.id == this.userId)
+    console.log(this.capturedUser);
+
 
    
 
-    
-
-    if(this.userid){
-      this.service.deleteUser(this.userid).subscribe(data=>{
-        this.snackbar.open("user deleted");
-        this.router.navigate(['list']);
-      }, err =>{
-        this.snackbar.open('unable to delete user')
-        this.router.navigate(['list']);
-      })
-  }}
 
 
+
+    // if(this.userId){
+    // this.service.getUsers()
+    // this.snackbar.open("user deleted");
+    // this.router.navigate(['list']);
+    // }, err =>{
+    // this.snackbar.open('unable to delete user')
+    //  this.router.navigate(['list']);
+    // })
+
+  }
 }
+
+
+

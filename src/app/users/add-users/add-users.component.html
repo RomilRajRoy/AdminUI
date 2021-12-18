@@ -14,8 +14,8 @@
                 <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Name</mat-label>
-                        <input matInput placeholder="Name" formControlName="username">
-                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <input matInput placeholder="Name" formControlName="name" value="" >
+                        
                         <mat-error *ngIf="addUserForm.controls['name'].errors && addUserForm.controls['name'].hasError('required')">
                             Name is required
                         </mat-error>
@@ -27,8 +27,8 @@
                 <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input matInput placeholder="Email" formControlName="email">
-                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <input value=""  matInput placeholder="Email" formControlName="email">
+                        
                         <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('required')">
                             Email is required
                         </mat-error>
@@ -40,8 +40,8 @@
                 <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Role</mat-label>
-                        <input matInput placeholder="Role" formControlName="role">
-                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <input value=""  matInput placeholder="Role" formControlName="role">
+                        
                         <mat-error *ngIf="addUserForm.controls['role'].errors && addUserForm.controls['role'].hasError('required')">
                             Role is required
                         </mat-error>

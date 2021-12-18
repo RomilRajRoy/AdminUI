@@ -61,8 +61,8 @@
 
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Action </th>
-          <td mat-cell *matCellDef="let element"><a [routerLink]="['view',element.id]">View</a> |
-            <a [routerLink]="['edit',element.id]">Edit</a>|<a [routerLink]="['delete',element.id]">Delete</a>
+          <td mat-cell *matCellDef="let element">
+            <a [routerLink]="['edit',element.id]">Edit</a>|<a [routerLink]="['delete',element.id]" (click)="delete(element.id)">Delete</a>
           </td>
         </ng-container>
 
@@ -79,7 +79,7 @@
          
         </ul>
       </nav> 
-      <button mat-raised-button color="accent" (click)="deleteAll()">Delete Selected Rows</button>
+      <button mat-raised-button color="accent" >Delete Selected Rows</button>
     </mat-card-content>
   </mat-card>
 </div>

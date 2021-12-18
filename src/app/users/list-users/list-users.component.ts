@@ -1,8 +1,11 @@
   import { Component, OnInit ,ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-
 import { User } from 'src/app/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
+
+
 
 const ELEMENT_DATA: User[] = []
 
@@ -32,14 +35,16 @@ export class ListUsersComponent implements OnInit {
  
  
   constructor( private service: UserService, 
-    private  snackbar : MatSnackBar ) { }
+    private  snackbar : MatSnackBar, private router: Router ) { }
 
 
     ngOnInit(): void {
-    this.service.listUsers().subscribe(data =>{
-      this.listUsers = data;
-    })
+   // this.service.listUsers().subscribe(data =>{
+     // this.listUsers = data;
+    //})
 
+    this.listUsers = this.service.getUsers()
+    console.log(this.listUsers)
   }
 
   
@@ -72,24 +77,34 @@ export class ListUsersComponent implements OnInit {
   }
 
   onChange($event: any){
-    this.userid = $event.target.value;
-    this.isChecked = $event.target.checked;
-    console.log(this.userid , this.isChecked);
+    if($event.target.checked){
+      this.userid = $event.target.value;
+    }
+    
+    //this.isChecked = $event.target.checked;
+    //console.log(this.userid , this.isChecked);
 
     
    
   }
 
   deleteAll(){
-    if(this.isChecked == true){
-      this.service.deleteUser(this.userid).subscribe(data=>{
-        this.snackbar.open('selected users deleted')
-      },err=>{
-        this.snackbar.open('unable to delete selected users')
-      })
+    if(this.isChecked== true){
+      this.service.deleteUser(this.userid);
+      this.snackbar.open('Selected USers Deleted')
+    }
+}
 
+  delete(id:any){
+    for(let i=0 ; i<this.listUsers.length; i++){
+    if(this.listUsers[i].id == id){
+      this.listUsers.splice(i,1);  
+    }
   }
-  }
+  this.service.deleteUser(id);
+  this.snackbar.open('user deleted succesfully');
+  this.router.navigate(['list'])
+}
 
   getArrayOfNumber(length: number){
 
