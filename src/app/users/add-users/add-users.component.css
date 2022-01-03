@@ -1,6 +1,16 @@
-.login-wrapper{
-    position: absolute;
-      margin: 100px;
-      margin-left: 550px;
+.content{
+    display: flex;
+    flex-direction: column;
+
+    }
+
+    .wrapper{
+      display: flex;
+      justify-content: space-evenly;
+     
+    }
+
+    .card{
+      margin-top: 80px;
     }
   

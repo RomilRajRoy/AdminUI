@@ -1,21 +1,21 @@
-.username{
-min-width: 300px;
+@media (min-width:700px){
+
+.wrapper{
+      display: flex;
+      align-items: flex-start;
+      
 }
-
-.style-link{
-    padding: 20px;
+.content{
+  display: flex;
+  width: 100%;
+  flex: 5;
+  justify-content: stretch;
+  
 }
-
-
-
+}
   h1{
     margin: 10px;
 }
-
-table {
-    width: 97%;
-
-  }
 
   th{
       background-color: black;
@@ -27,26 +27,24 @@ table {
 
   td{
       background-color: rgb(230, 219, 219);
-      
   }
-
-  .searchInput{
-    background-position-x: right;
-    margin-left: 500px;
-  }
-  
-  body{
-    width: 100%;
-  }
-
-  .searchbtn{
-    position: relative;
-    left: 200px;  }
-
-    #closebtn{
-      margin-left: 2px;
+ 
+    .search{        
+      flex: 1;
+      order: 3;
+    }
+    .sort{
+      flex: 1;
+      order: 2;
+      margin-top: 30px;
+    }
+    .title{
+        flex: 5;
+        order: 1;
     }
 
-    .wrapper{
-      width: 100%;
+    
+
+    table{
+    width: 97%;
     }

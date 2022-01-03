@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
-import { v4 as uuid } from 'uuid';
+//import { v4 as uuid } from 'uuid';
 @Component({
   selector: 'app-add-users',
   templateUrl: './add-users.component.html',
@@ -14,9 +14,6 @@ export class AddUsersComponent implements OnInit {
   addUserForm : FormGroup = new FormGroup({});
   users: any = [];
   newId: any =1;
-  ID(){
-    
-  } 
   
 
   constructor(private formbuilder : FormBuilder,
