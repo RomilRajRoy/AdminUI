@@ -56,6 +56,9 @@ export class UserService {
     localStorage.setItem('admin', JSON.stringify(users));
   }
 
+  deleteselecteduser(ids:Array<any>){
+
+  }
   
   userUpdate(olduser: any, newuser: any) {
     let users = JSON.parse(localStorage.getItem('admin')|| '{}');

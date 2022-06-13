@@ -99,6 +99,7 @@ export class ListUsersComponent implements OnInit {
     for(let i=0 ; i<this.listUsers.length; i++){
     if(this.listUsers[i].id == id){
       this.listUsers.splice(i,1);  
+      console.log()
     }
   }
   this.service.deleteUser(id);

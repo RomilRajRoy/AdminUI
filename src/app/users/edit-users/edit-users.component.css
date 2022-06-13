@@ -1,4 +1,6 @@
-.content{
-    display: flex;
-    flex-direction: column;
+
+.wrapper{
+display: flex;
+height: max-content;
+width: max-content;
 }

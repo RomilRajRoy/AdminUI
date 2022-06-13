@@ -15,12 +15,15 @@
 }
   h1{
     margin: 10px;
+    font-style: oblique;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
 }
 
   th{
       background-color: black;
       color: burlywood;
-      text-shadow: 1px 5px 3px rgb(187, 16, 16), 50px 20px 10p x#bd7b7b,
+      text-shadow: 1px 5px 3px rgb(187, 16, 16), 50px 20px 10p #bd7b7b,
                     50px 20px 60px #b12, 50px 20px 60px #ccd4eb ;
     letter-spacing: 1px;              
   }
@@ -47,4 +50,5 @@
 
     table{
     width: 97%;
+    
     }
